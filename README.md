@@ -308,4 +308,4 @@ This project helped in understanding:
 
 **Manikant Kumar**
 
-DevOps | AWS | Docker | GitHub Actions | ECS | ECR
+DevOps | Cloud | AWS | Docker | GitHub Actions | ECS | ECR
