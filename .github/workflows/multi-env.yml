@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     outputs:
-      imagee: ${{ steps.build-image.outputs.image }}
+      image: ${{ steps.build-image.outputs.image }}
 
     steps:
     - name: Checkout
@@ -70,7 +70,7 @@ jobs:
       with:
         task-definition: ${{ vars.ECS_TASK_DEFINITION }}
         container-name: ${{ env.CONTAINER_NAME }}
-        image: ${{ needs.build.outputs.imagee }}
+        image: ${{ needs.build.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
@@ -101,7 +101,7 @@ jobs:
       with:
         task-definition: ${{ vars.ECS_TASK_DEFINITION }}
         container-name: ${{ env.CONTAINER_NAME }}
-        image: ${{ needs.build.outputs.imagee }}
+        image: ${{ needs.build.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
@@ -133,7 +133,7 @@ jobs:
       with:
         task-definition: ${{ vars.ECS_TASK_DEFINITION }}
         container-name: ${{ env.CONTAINER_NAME }}
-        image: ${{ needs.build.outputs.imagee }}
+        image: ${{ needs.build.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
