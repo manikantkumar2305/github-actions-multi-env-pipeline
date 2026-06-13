@@ -1,91 +1,50 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:eu-north-1:033517038307:task-definition/prod_td:1",
-    "containerDefinitions": [
+  "containerDefinitions": [
+    {
+      "name": "approval",
+      "image": "033517038307.dkr.ecr.eu-north-1.amazonaws.com/approval_gate",
+      "cpu": 0,
+      "portMappings": [
         {
-            "name": "approval",
-            "image": "033517038307.dkr.ecr.eu-north-1.amazonaws.com/approval_gate",
-            "cpu": 0,
-            "portMappings": [
-                {
-                    "containerPort": 5000,
-                    "hostPort": 5000,
-                    "protocol": "tcp",
-                    "name": "approval_port",
-                    "appProtocol": "http"
-                }
-            ],
-            "essential": true,
-            "environment": [],
-            "environmentFiles": [],
-            "mountPoints": [],
-            "volumesFrom": [],
-            "ulimits": [],
-            "logConfiguration": {
-                "logDriver": "awslogs",
-                "options": {
-                    "awslogs-group": "/ecs/prod_td",
-                    "awslogs-create-group": "true",
-                    "awslogs-region": "eu-north-1",
-                    "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
-            },
-            "systemControls": []
+          "containerPort": 5000,
+          "hostPort": 5000,
+          "protocol": "tcp",
+          "name": "approval_port",
+          "appProtocol": "http"
         }
-    ],
-    "family": "prod_td",
-    "taskRoleArn": "arn:aws:iam::033517038307:role/ecsTaskExecutionRole",
-    "executionRoleArn": "arn:aws:iam::033517038307:role/ecsTaskExecutionRole",
-    "networkMode": "awsvpc",
-    "revision": 1,
-    "volumes": [],
-    "status": "ACTIVE",
-    "requiresAttributes": [
-        {
-            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+      ],
+      "essential": true,
+      "environment": [],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "ulimits": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/prod_td",
+          "awslogs-create-group": "true",
+          "awslogs-region": "eu-north-1",
+          "awslogs-stream-prefix": "ecs"
         },
-        {
-            "name": "ecs.capability.execution-role-awslogs"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.ecr-auth"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
-        },
-        {
-            "name": "ecs.capability.execution-role-ecr-pull"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-        }
-    ],
-    "placementConstraints": [],
-    "compatibilities": [
-        "EC2",
-        "MANAGED_INSTANCES",
-        "FARGATE"
-    ],
-    "runtimePlatform": {
-        "cpuArchitecture": "X86_64",
-        "operatingSystemFamily": "LINUX"
-    },
-    "requiresCompatibilities": [
-        "FARGATE"
-    ],
-    "cpu": "1024",
-    "memory": "3072",
-    "registeredAt": "2026-06-13T17:54:46.930Z",
-    "registeredBy": "arn:aws:iam::033517038307:root",
-    "enableFaultInjection": false,
-    "tags": []
+        "secretOptions": []
+      },
+      "systemControls": []
+    }
+  ],
+  "family": "prod_td",
+  "taskRoleArn": "arn:aws:iam::033517038307:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::033517038307:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "volumes": [],
+  "placementConstraints": [],
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "1024",
+  "memory": "3072"
 }
